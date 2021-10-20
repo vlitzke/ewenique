@@ -1,0 +1,32 @@
+---
+title: "Introduction"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+This is an `R Markdown` vignette for a niche package that is honestly just for my own personal use to keep all of my functions organized. Up yours, StUArt.
+
+It is recommended to download or clone the `R Markdown` file and data from the accompanying [GitHub repository](https://github.com/vlitzke) to access the documentation together with all the files that are needed to repeat analyses shown in this document. Just click on the link above and then on the green box `Clone or download`. In order to function properly, the same structure of folders must be kept. If you have any questions, do not hesitate to contact vivienne.litzke@gmail.com
+
+The data originates from samples collected from the Village Bay area on St. Kilda, an island inhabited by a wild population of Soay sheep (*Ovis aries*) between the years of 1985 and present day. [Click here for an overview of the projects](http://soaysheep.biology.ed.ac.uk/). 
+
+# Setup
+
+First install the package 
+```{r, install packages, eval=FALSE}
+install.packages("vlitzke/ewenique")
+```
+To load the package:
+
+```{r setup}
+library(ewenique)
+```
