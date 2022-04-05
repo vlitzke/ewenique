@@ -8,9 +8,10 @@
 #'
 #' @keywords population density
 
-getPopDensity <- function(census) {
-  ind_cen <- census
-  ind_cen$popDenValue <- gridPopDen$Occurence[match(ind_cen$comb_coords,gridPopDen$comb_coords)]
-  res <- mean(ind_cen$popDenValue)
+# Takes in an individual's census data 
+getIndPopDen <- function(ind_cen, year) {
+  matchYear <- subset(localpopDen_sum, localpopDen_sum$Year == year)
+  ind_cen$popDenValue <- matchYear$sum_means[match(ind_cen$comb_coords, matchYear$comb_coords)]
+  res <- round(mean(ind_cen$popDenValue, na.rm=TRUE))
   return(res)
 }
