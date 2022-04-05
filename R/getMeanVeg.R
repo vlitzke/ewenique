@@ -9,11 +9,21 @@
 #'
 #' @keywords vegetation
 
-getMeanVeg<-function(id, choosen_cen){
-  choosen_cen$Calluna <- veg$Calluna[match(choosen_cen$comb_coords,veg$comb_coords)]
-  choosen_cen$Holcus  <- veg$H.lanatus[match(choosen_cen$comb_coords,veg$comb_coords)]
-  res<-c(mean(choosen_cen$Calluna, na.rm=TRUE),mean(choosen_cen$Holcus, na.rm=TRUE))
+# Need veg dataframe and comb_coords
+getMeanVeg<-function(id, cen){
+  
+  # match the coordinate points between the census and vegetation data to 
+  # extract out the percentage cover of each vegetation for each grid
+  cen$Calluna <- veg$Calluna[match(cen$comb_coords,veg$comb_coords)]
+  cen$Holcus  <- veg$H.lanatus[match(cen$comb_coords,veg$comb_coords)]
+  
+  # Take the mean of both of the columns 
+  res<-c(mean(cen$Calluna, na.rm=TRUE),mean(cen$Holcus, na.rm=TRUE))
+  
+  # Rename the columns
   names(res)<-c("mean Calluna","mean Holcus") 
+  
+  # Returns both values 
   return(res)
 }
 
